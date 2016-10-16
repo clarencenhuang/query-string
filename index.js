@@ -11,7 +11,12 @@ function encode(value, opts) {
 }
 
 exports.extract = function (str) {
-	return str.split('?')[1] || '';
+	var parts =  str.split('?')[1] || '';
+	if(parts.length > 0){
+		return parts.split('#')[0] || parts
+	} else {
+		return parts;
+	}
 };
 
 exports.parse = function (str) {
